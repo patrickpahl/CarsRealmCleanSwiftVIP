@@ -11,6 +11,18 @@
 		A37D2A4420B4B84E00A41F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4220B4B84E00A41F56 /* Main.storyboard */; };
 		A37D2A4620B4B84E00A41F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4520B4B84E00A41F56 /* Assets.xcassets */; };
 		A37D2A4920B4B84E00A41F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4720B4B84E00A41F56 /* LaunchScreen.storyboard */; };
+		A37D2A5920B4BF3000A41F56 /* CarsTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A5320B4BF3000A41F56 /* CarsTablePresenter.swift */; };
+		A37D2A5A20B4BF3000A41F56 /* CarsTableWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A5420B4BF3000A41F56 /* CarsTableWorker.swift */; };
+		A37D2A5B20B4BF3000A41F56 /* CarsTableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A5520B4BF3000A41F56 /* CarsTableRouter.swift */; };
+		A37D2A5C20B4BF3000A41F56 /* CarsTableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A5620B4BF3000A41F56 /* CarsTableModels.swift */; };
+		A37D2A5D20B4BF3000A41F56 /* CarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A5720B4BF3000A41F56 /* CarsTableViewController.swift */; };
+		A37D2A5E20B4BF3000A41F56 /* CarsTableInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A5820B4BF3000A41F56 /* CarsTableInteractor.swift */; };
+		A37D2A6520B4BF9500A41F56 /* AddCarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A5F20B4BF9500A41F56 /* AddCarPresenter.swift */; };
+		A37D2A6620B4BF9500A41F56 /* AddCarWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A6020B4BF9500A41F56 /* AddCarWorker.swift */; };
+		A37D2A6720B4BF9500A41F56 /* AddCarRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A6120B4BF9500A41F56 /* AddCarRouter.swift */; };
+		A37D2A6820B4BF9500A41F56 /* AddCarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A6220B4BF9500A41F56 /* AddCarModels.swift */; };
+		A37D2A6920B4BF9500A41F56 /* AddCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A6320B4BF9500A41F56 /* AddCarViewController.swift */; };
+		A37D2A6A20B4BF9500A41F56 /* AddCarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A6420B4BF9500A41F56 /* AddCarInteractor.swift */; };
 		C51960760F61D955F8B8797D /* Pods_CarsRealmCleanSwiftVIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED555226AB4D15D063F85E38 /* Pods_CarsRealmCleanSwiftVIP.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +35,18 @@
 		A37D2A4520B4B84E00A41F56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A37D2A4820B4B84E00A41F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A37D2A4A20B4B84F00A41F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A37D2A5320B4BF3000A41F56 /* CarsTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTablePresenter.swift; sourceTree = "<group>"; };
+		A37D2A5420B4BF3000A41F56 /* CarsTableWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableWorker.swift; sourceTree = "<group>"; };
+		A37D2A5520B4BF3000A41F56 /* CarsTableRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableRouter.swift; sourceTree = "<group>"; };
+		A37D2A5620B4BF3000A41F56 /* CarsTableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableModels.swift; sourceTree = "<group>"; };
+		A37D2A5720B4BF3000A41F56 /* CarsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewController.swift; sourceTree = "<group>"; };
+		A37D2A5820B4BF3000A41F56 /* CarsTableInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableInteractor.swift; sourceTree = "<group>"; };
+		A37D2A5F20B4BF9500A41F56 /* AddCarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarPresenter.swift; sourceTree = "<group>"; };
+		A37D2A6020B4BF9500A41F56 /* AddCarWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarWorker.swift; sourceTree = "<group>"; };
+		A37D2A6120B4BF9500A41F56 /* AddCarRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarRouter.swift; sourceTree = "<group>"; };
+		A37D2A6220B4BF9500A41F56 /* AddCarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarModels.swift; sourceTree = "<group>"; };
+		A37D2A6320B4BF9500A41F56 /* AddCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarViewController.swift; sourceTree = "<group>"; };
+		A37D2A6420B4BF9500A41F56 /* AddCarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarInteractor.swift; sourceTree = "<group>"; };
 		ED555226AB4D15D063F85E38 /* Pods_CarsRealmCleanSwiftVIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarsRealmCleanSwiftVIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -60,12 +84,48 @@
 			isa = PBXGroup;
 			children = (
 				A37D2A3E20B4B84E00A41F56 /* AppDelegate.swift */,
+				A37D2A5020B4BEA900A41F56 /* Scenes */,
 				A37D2A4220B4B84E00A41F56 /* Main.storyboard */,
 				A37D2A4520B4B84E00A41F56 /* Assets.xcassets */,
 				A37D2A4720B4B84E00A41F56 /* LaunchScreen.storyboard */,
 				A37D2A4A20B4B84F00A41F56 /* Info.plist */,
 			);
 			path = CarsRealmCleanSwiftVIP;
+			sourceTree = "<group>";
+		};
+		A37D2A5020B4BEA900A41F56 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A37D2A5120B4BEBA00A41F56 /* CarsTable */,
+				A37D2A5220B4BEF900A41F56 /* AddCar */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		A37D2A5120B4BEBA00A41F56 /* CarsTable */ = {
+			isa = PBXGroup;
+			children = (
+				A37D2A5320B4BF3000A41F56 /* CarsTablePresenter.swift */,
+				A37D2A5420B4BF3000A41F56 /* CarsTableWorker.swift */,
+				A37D2A5520B4BF3000A41F56 /* CarsTableRouter.swift */,
+				A37D2A5620B4BF3000A41F56 /* CarsTableModels.swift */,
+				A37D2A5720B4BF3000A41F56 /* CarsTableViewController.swift */,
+				A37D2A5820B4BF3000A41F56 /* CarsTableInteractor.swift */,
+			);
+			path = CarsTable;
+			sourceTree = "<group>";
+		};
+		A37D2A5220B4BEF900A41F56 /* AddCar */ = {
+			isa = PBXGroup;
+			children = (
+				A37D2A5F20B4BF9500A41F56 /* AddCarPresenter.swift */,
+				A37D2A6020B4BF9500A41F56 /* AddCarWorker.swift */,
+				A37D2A6120B4BF9500A41F56 /* AddCarRouter.swift */,
+				A37D2A6220B4BF9500A41F56 /* AddCarModels.swift */,
+				A37D2A6320B4BF9500A41F56 /* AddCarViewController.swift */,
+				A37D2A6420B4BF9500A41F56 /* AddCarInteractor.swift */,
+			);
+			path = AddCar;
 			sourceTree = "<group>";
 		};
 		B9540D639BEBD649FCABFC34 /* Pods */ = {
@@ -216,7 +276,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A37D2A5A20B4BF3000A41F56 /* CarsTableWorker.swift in Sources */,
+				A37D2A5E20B4BF3000A41F56 /* CarsTableInteractor.swift in Sources */,
+				A37D2A5920B4BF3000A41F56 /* CarsTablePresenter.swift in Sources */,
+				A37D2A6920B4BF9500A41F56 /* AddCarViewController.swift in Sources */,
+				A37D2A5C20B4BF3000A41F56 /* CarsTableModels.swift in Sources */,
+				A37D2A6620B4BF9500A41F56 /* AddCarWorker.swift in Sources */,
+				A37D2A6720B4BF9500A41F56 /* AddCarRouter.swift in Sources */,
+				A37D2A5B20B4BF3000A41F56 /* CarsTableRouter.swift in Sources */,
+				A37D2A6820B4BF9500A41F56 /* AddCarModels.swift in Sources */,
+				A37D2A5D20B4BF3000A41F56 /* CarsTableViewController.swift in Sources */,
 				A37D2A3F20B4B84E00A41F56 /* AppDelegate.swift in Sources */,
+				A37D2A6A20B4BF9500A41F56 /* AddCarInteractor.swift in Sources */,
+				A37D2A6520B4BF9500A41F56 /* AddCarPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
