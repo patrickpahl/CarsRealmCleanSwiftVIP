@@ -1,0 +1,6 @@
+framework module Pods_CarsRealmCleanSwiftVIP {
+  umbrella header "Pods-CarsRealmCleanSwiftVIP-umbrella.h"
+
+  export *
+  module * { export * }
+}

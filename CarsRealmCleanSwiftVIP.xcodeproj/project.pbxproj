@@ -12,9 +12,12 @@
 		A37D2A4420B4B84E00A41F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4220B4B84E00A41F56 /* Main.storyboard */; };
 		A37D2A4620B4B84E00A41F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4520B4B84E00A41F56 /* Assets.xcassets */; };
 		A37D2A4920B4B84E00A41F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4720B4B84E00A41F56 /* LaunchScreen.storyboard */; };
+		C51960760F61D955F8B8797D /* Pods_CarsRealmCleanSwiftVIP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED555226AB4D15D063F85E38 /* Pods_CarsRealmCleanSwiftVIP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		030DE039BB4EE92674EDA312 /* Pods-CarsRealmCleanSwiftVIP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarsRealmCleanSwiftVIP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarsRealmCleanSwiftVIP/Pods-CarsRealmCleanSwiftVIP.debug.xcconfig"; sourceTree = "<group>"; };
+		6021D0E25DA3584DB56B4E04 /* Pods-CarsRealmCleanSwiftVIP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarsRealmCleanSwiftVIP.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarsRealmCleanSwiftVIP/Pods-CarsRealmCleanSwiftVIP.release.xcconfig"; sourceTree = "<group>"; };
 		A37D2A3B20B4B84E00A41F56 /* CarsRealmCleanSwiftVIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsRealmCleanSwiftVIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37D2A3E20B4B84E00A41F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A37D2A4020B4B84E00A41F56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		A37D2A4520B4B84E00A41F56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A37D2A4820B4B84E00A41F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A37D2A4A20B4B84F00A41F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED555226AB4D15D063F85E38 /* Pods_CarsRealmCleanSwiftVIP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarsRealmCleanSwiftVIP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51960760F61D955F8B8797D /* Pods_CarsRealmCleanSwiftVIP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				A37D2A3D20B4B84E00A41F56 /* CarsRealmCleanSwiftVIP */,
 				A37D2A3C20B4B84E00A41F56 /* Products */,
+				B9540D639BEBD649FCABFC34 /* Pods */,
+				EF1A04D74A414E747152A7A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = CarsRealmCleanSwiftVIP;
 			sourceTree = "<group>";
 		};
+		B9540D639BEBD649FCABFC34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				030DE039BB4EE92674EDA312 /* Pods-CarsRealmCleanSwiftVIP.debug.xcconfig */,
+				6021D0E25DA3584DB56B4E04 /* Pods-CarsRealmCleanSwiftVIP.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF1A04D74A414E747152A7A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED555226AB4D15D063F85E38 /* Pods_CarsRealmCleanSwiftVIP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A37D2A4D20B4B84F00A41F56 /* Build configuration list for PBXNativeTarget "CarsRealmCleanSwiftVIP" */;
 			buildPhases = (
+				BC5AA062F57F6E7F1A6688CA /* [CP] Check Pods Manifest.lock */,
 				A37D2A3720B4B84E00A41F56 /* Sources */,
 				A37D2A3820B4B84E00A41F56 /* Frameworks */,
 				A37D2A3920B4B84E00A41F56 /* Resources */,
+				333ECA033FB656A3D6A98F7C /* [CP] Embed Pods Frameworks */,
+				F067A00499CE25D198BCC92E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,62 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		333ECA033FB656A3D6A98F7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CarsRealmCleanSwiftVIP/Pods-CarsRealmCleanSwiftVIP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarsRealmCleanSwiftVIP/Pods-CarsRealmCleanSwiftVIP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC5AA062F57F6E7F1A6688CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CarsRealmCleanSwiftVIP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F067A00499CE25D198BCC92E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarsRealmCleanSwiftVIP/Pods-CarsRealmCleanSwiftVIP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A37D2A3720B4B84E00A41F56 /* Sources */ = {
@@ -272,6 +355,7 @@
 		};
 		A37D2A4E20B4B84F00A41F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 030DE039BB4EE92674EDA312 /* Pods-CarsRealmCleanSwiftVIP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +371,7 @@
 		};
 		A37D2A4F20B4B84F00A41F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6021D0E25DA3584DB56B4E04 /* Pods-CarsRealmCleanSwiftVIP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
