@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A326D71E20B4CA9000F8566D /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = A326D71D20B4CA9000F8566D /* Car.swift */; };
 		A37D2A3F20B4B84E00A41F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37D2A3E20B4B84E00A41F56 /* AppDelegate.swift */; };
 		A37D2A4420B4B84E00A41F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4220B4B84E00A41F56 /* Main.storyboard */; };
 		A37D2A4620B4B84E00A41F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37D2A4520B4B84E00A41F56 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		030DE039BB4EE92674EDA312 /* Pods-CarsRealmCleanSwiftVIP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarsRealmCleanSwiftVIP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarsRealmCleanSwiftVIP/Pods-CarsRealmCleanSwiftVIP.debug.xcconfig"; sourceTree = "<group>"; };
 		6021D0E25DA3584DB56B4E04 /* Pods-CarsRealmCleanSwiftVIP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarsRealmCleanSwiftVIP.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarsRealmCleanSwiftVIP/Pods-CarsRealmCleanSwiftVIP.release.xcconfig"; sourceTree = "<group>"; };
+		A326D71D20B4CA9000F8566D /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		A37D2A3B20B4B84E00A41F56 /* CarsRealmCleanSwiftVIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarsRealmCleanSwiftVIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37D2A3E20B4B84E00A41F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A37D2A4320B4B84E00A41F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A326D71C20B4CA8100F8566D /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				A326D71D20B4CA9000F8566D /* Car.swift */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
 		A37D2A3220B4B84E00A41F56 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		A37D2A5020B4BEA900A41F56 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A326D71C20B4CA8100F8566D /* Car */,
 				A37D2A5120B4BEBA00A41F56 /* CarsTable */,
 				A37D2A5220B4BEF900A41F56 /* AddCar */,
 			);
@@ -288,6 +299,7 @@
 				A37D2A5D20B4BF3000A41F56 /* CarsTableViewController.swift in Sources */,
 				A37D2A3F20B4B84E00A41F56 /* AppDelegate.swift in Sources */,
 				A37D2A6A20B4BF9500A41F56 /* AddCarInteractor.swift in Sources */,
+				A326D71E20B4CA9000F8566D /* Car.swift in Sources */,
 				A37D2A6520B4BF9500A41F56 /* AddCarPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@
         <!--Title-->
         <scene sceneID="GHj-Ga-lMH">
             <objects>
-                <viewController id="jxP-wF-5as" sceneMemberID="viewController">
+                <viewController id="jxP-wF-5as" customClass="CarsTableViewController" customModule="CarsRealmCleanSwiftVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q9b-eF-9lN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="lHV-5p-bif" detailTextLabel="ARd-wW-DWL" style="IBUITableViewCellStyleValue1" id="Auc-7w-6iV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="carCell" textLabel="lHV-5p-bif" detailTextLabel="ARd-wW-DWL" style="IBUITableViewCellStyleValue1" id="Auc-7w-6iV">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Auc-7w-6iV" id="JC0-61-Rse">
@@ -60,15 +60,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Eta-0Z-9OD" id="k8H-tq-I7u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LN3-Bo-fxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="364" y="102.99850074962519"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Car View Controller-->
         <scene sceneID="7cU-V7-WVY">
             <objects>
-                <viewController id="bAC-da-Glz" sceneMemberID="viewController">
+                <viewController id="bAC-da-Glz" customClass="AddCarViewController" customModule="CarsRealmCleanSwiftVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TEu-1o-jYP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,9 +116,15 @@
                                 <state key="normal" title="SAVE">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="bAC-da-Glz" eventType="touchUpInside" id="2hH-6x-Lkl"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfd-Cd-Var">
                                 <rect key="frame" x="122" y="251" width="51" height="31"/>
+                                <connections>
+                                    <action selector="soldSwitchValueChanged:" destination="bAC-da-Glz" eventType="valueChanged" id="obd-fr-sAT"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -140,6 +149,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GTS-sD-aEd"/>
                     </view>
+                    <connections>
+                        <outlet property="makeTextField" destination="qa6-DV-yw8" id="FIY-Fz-qK8"/>
+                        <outlet property="modelTextField" destination="ZsT-IQ-Sxe" id="CkF-Qd-Ijz"/>
+                        <outlet property="saveButton" destination="ZqJ-U9-tU7" id="aGy-Ff-uPA"/>
+                        <outlet property="soldSwitch" destination="lfd-Cd-Var" id="voG-sv-qh7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdy-EA-4ge" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -1,17 +1,14 @@
 import UIKit
 
-@objc protocol CarsTableRoutingLogic
-{
+@objc protocol CarsTableRoutingLogic {
   //func routeToSomewhere(segue: UIStoryboardSegue?)
 }
 
-protocol CarsTableDataPassing
-{
+protocol CarsTableDataPassing {
   var dataStore: CarsTableDataStore? { get }
 }
 
-class CarsTableRouter: NSObject, CarsTableRoutingLogic, CarsTableDataPassing
-{
+class CarsTableRouter: NSObject, CarsTableRoutingLogic, CarsTableDataPassing {
   weak var viewController: CarsTableViewController?
   var dataStore: CarsTableDataStore?
   

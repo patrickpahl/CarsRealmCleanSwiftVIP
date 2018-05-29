@@ -1,8 +1,7 @@
 import UIKit
 
-class AddCarWorker
-{
-  func doSomeWork()
-  {
+class AddCarWorker {
+  func doSomeWork() {
+    
   }
 }

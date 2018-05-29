@@ -1,19 +1,30 @@
 import UIKit
 
-enum CarsTable
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum CarsTable {
+    // MARK: Use cases
+
+    enum Something {
+        struct Request {
+
+        }
+        struct Response {
+
+        }
+        struct ViewModel {
+
+        }
     }
-    struct Response
-    {
+
+    enum Cars {
+        struct Request {
+            
+        }
+        struct Response {
+
+        }
+        struct ViewModel {
+
+        }
     }
-    struct ViewModel
-    {
-    }
-  }
+
 }

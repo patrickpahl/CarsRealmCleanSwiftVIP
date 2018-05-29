@@ -1,8 +1,7 @@
 import UIKit
 
-class CarsTableWorker
-{
-  func doSomeWork()
-  {
+class CarsTableWorker {
+  func doSomeWork() {
+    
   }
 }
