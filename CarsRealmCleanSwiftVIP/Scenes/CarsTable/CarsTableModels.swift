@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 enum CarsTable {
     // MARK: Use cases
@@ -15,15 +16,21 @@ enum CarsTable {
         }
     }
 
-    enum Cars {
+    enum GetCars {
         struct Request {
             
         }
         struct Response {
-
+            var cars: Results<Car>?
         }
         struct ViewModel {
+            struct DisplayedCar {
+                var make: String
+                var model: String
+                var sold: Bool
+            }
 
+            var displayedCars = [DisplayedCar]()
         }
     }
 

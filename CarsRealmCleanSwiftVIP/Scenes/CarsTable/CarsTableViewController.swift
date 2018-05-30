@@ -3,13 +3,15 @@ import RealmSwift
 
 protocol CarsTableDisplayLogic: class {
     func displaySomething(viewModel: CarsTable.Something.ViewModel)
+    func displayAllCars(viewModel: CarsTable.GetCars.ViewModel)
 }
 
 class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var cars: Results<Car>?
+    ///var cars: Results<Car>?
+    var cars = [CarsTable.GetCars.ViewModel.DisplayedCar]()
 
     var interactor: CarsTableBusinessLogic?
     var router: (NSObjectProtocol & CarsTableRoutingLogic & CarsTableDataPassing)?
@@ -61,8 +63,8 @@ class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableV
         tableView.delegate = self
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
 
         getCars()
     }
@@ -81,32 +83,31 @@ class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableV
     }
 
     func getCars() {
+        let request = CarsTable.GetCars.Request()
+        interactor?.getCars(request: request)
 
+    }
 
-        //reload data
+    func displayAllCars(viewModel: CarsTable.GetCars.ViewModel) {
+        cars = viewModel.displayedCars
+        tableView.reloadData()
     }
 
     // TableView Funcs
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        if let cars = cars {
-            return cars.count
-        } else {
-            return 0
-        }
+        return cars.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "carCell", for: indexPath)
 
-        guard let cars = cars else { return UITableViewCell() }
-
         let car = cars[indexPath.row]
 
-        cell.textLabel?.text = ""
-        cell.detailTextLabel?.text = ""
+        cell.textLabel?.text = car.make + " " + car.model
+        cell.detailTextLabel?.text = "\(car.sold)"
 
         return cell
     }
