@@ -1,7 +1,7 @@
 import UIKit
 
 protocol AddCarDisplayLogic: class {
-    func displaySomething(viewModel: AddCar.Something.ViewModel)
+
 }
 
 class AddCarViewController: UIViewController, AddCarDisplayLogic {
@@ -13,6 +13,8 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
 
     var interactor: AddCarBusinessLogic?
     var router: (NSObjectProtocol & AddCarRoutingLogic & AddCarDataPassing)?
+
+    var soldValue = Bool()
 
     // MARK: Object lifecycle
 
@@ -56,30 +58,40 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        // TODO: update when enabling update car
+        soldValue = false
+        soldSwitch.isOn = false
     }
 
     // MARK: Do something
 
     //@IBOutlet weak var nameTextField: UITextField!
 
-    func doSomething() {
-        let request = AddCar.Something.Request()
-        interactor?.doSomething(request: request)
-    }
+    func addCar() {
 
-    func displaySomething(viewModel: AddCar.Something.ViewModel){
-        //nameTextField.text = viewModel.name
+        guard let makeText = makeTextField.text,
+            let modelText = modelTextField.text,
+            let sold = soldValue else { return }
+
+        let carFields = AddCar.AddCarFields(make: makeText, model: modelText, sold: soldValue)
+
+        let request = AddCar.AddCar.Request(addCarFields: carFields)
+        interactor.
     }
 
     // Actions:
 
     @IBAction func soldSwitchValueChanged(_ sender: UISwitch) {
-
+        soldValue = soldSwitch.isOn ? true : false
     }
 
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-
+        addCar()
     }
 
 }

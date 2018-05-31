@@ -1,17 +1,24 @@
 import UIKit
 
 enum AddCar {
-  // MARK: Use cases
-  
-  enum Something {
-    struct Request {
-        
-    }
-    struct Response {
+    // MARK: Use cases
 
+    struct AddCarFields {
+        var make: String
+        var model: String
+        var sold: Bool
     }
-    struct ViewModel {
 
+    enum AddCar {
+        struct Request {
+            var addCarFields: AddCarFields
+        }
+        struct Response {
+            var car: Car?
+        }
+        struct ViewModel {
+            var car: Car?
+        }
     }
-  }
+
 }
