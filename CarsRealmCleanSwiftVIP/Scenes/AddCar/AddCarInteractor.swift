@@ -1,7 +1,6 @@
 import UIKit
 
 protocol AddCarBusinessLogic {
-    func doSomething(request: AddCar.Something.Request)
     func addCar(request: AddCar.AddCar.Request)
 }
 
@@ -16,17 +15,11 @@ class AddCarInteractor: AddCarBusinessLogic, AddCarDataStore {
 
     // MARK: Do something
 
-    func doSomething(request: AddCar.Something.Request) {
-        worker = AddCarWorker()
-        worker?.doSomeWork()
-
-        let response = AddCar.Something.Response()
-        presenter?.presentSomething(response: response)
-    }
-
     func addCar(request: AddCar.AddCar.Request) {
         worker = AddCarWorker()
-        worker?.addCarToRealm(make: <#T##String#>, model: <#T##String#>, sold: <#T##Bool#>)
+        worker?.addCarToRealm(make: request.addCarFields.make, model: request.addCarFields.model, sold: request.addCarFields.sold)
 
+        let response = AddCar.AddCar.Response()
+        presenter?.presentCarAdded(response: response)
     }
 }

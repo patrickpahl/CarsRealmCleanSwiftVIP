@@ -1,7 +1,7 @@
 import UIKit
 
 protocol AddCarDisplayLogic: class {
-
+    func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel)
 }
 
 class AddCarViewController: UIViewController, AddCarDisplayLogic {
@@ -15,6 +15,7 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     var router: (NSObjectProtocol & AddCarRoutingLogic & AddCarDataPassing)?
 
     var soldValue = Bool()
+    var car: Car?
 
     // MARK: Object lifecycle
 
@@ -75,13 +76,19 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     func addCar() {
 
         guard let makeText = makeTextField.text,
-            let modelText = modelTextField.text,
-            let sold = soldValue else { return }
+            let modelText = modelTextField.text else { return }
 
         let carFields = AddCar.AddCarFields(make: makeText, model: modelText, sold: soldValue)
 
         let request = AddCar.AddCar.Request(addCarFields: carFields)
-        interactor.
+        interactor?.addCar(request: request)
+    }
+
+    func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel) {
+        car = viewModel.car
+        if let car = car {
+        print("NEW CAR ADDED: \(car.make) \(car.model), sold? \(car.sold)")
+        }
     }
 
     // Actions:
