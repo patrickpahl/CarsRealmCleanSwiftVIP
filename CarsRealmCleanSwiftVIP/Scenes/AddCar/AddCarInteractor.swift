@@ -2,11 +2,12 @@ import UIKit
 
 protocol AddCarBusinessLogic {
     func addCar(request: AddCar.AddCar.Request)
+    func updateFieldsIfCarExists(request: AddCar.UpdateFieldsIfCarExists.Request)
 }
 
 protocol AddCarDataStore {
-    //var name: String { get set }
     var car: Car? { get set }
+    var carToUpdate: Car? { get set }
 }
 
 class AddCarInteractor: AddCarBusinessLogic, AddCarDataStore {
@@ -14,6 +15,7 @@ class AddCarInteractor: AddCarBusinessLogic, AddCarDataStore {
     var worker: AddCarWorker?
 
     var car: Car?
+    var carToUpdate: Car?
 
     // MARK: Do something
 
@@ -24,4 +26,12 @@ class AddCarInteractor: AddCarBusinessLogic, AddCarDataStore {
         let response = AddCar.AddCar.Response()
         presenter?.presentCarAdded(response: response)
     }
+
+    func updateFieldsIfCarExists(request: AddCar.UpdateFieldsIfCarExists.Request) {
+        if carToUpdate != nil {
+            let response = AddCar.UpdateFieldsIfCarExists.Response(car: carToUpdate)
+            presenter?.presentUpdateFieldsIfCarExists(response: response)
+        }
+    }
+
 }

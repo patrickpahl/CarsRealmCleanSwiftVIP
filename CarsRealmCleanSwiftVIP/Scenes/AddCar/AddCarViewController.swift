@@ -2,10 +2,10 @@ import UIKit
 
 protocol AddCarDisplayLogic: class {
     func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel)
+    func displayUpdateFieldsIfCarExists(viewModel: AddCar.UpdateFieldsIfCarExists.ViewModel)
 }
 
 class AddCarViewController: UIViewController, AddCarDisplayLogic {
-
     @IBOutlet weak var makeTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var soldSwitch: UISwitch!
@@ -66,9 +66,11 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // TODO: update when enabling update car
-        soldValue = false
-        soldSwitch.isOn = false
+        updateFieldsIfCarExisits()
+        //// TODO: update when enabling update car
+        // if car to update available, car.sold. ELSE soldvalue = false
+        //soldValue = false
+        ///soldSwitch.isOn = false
     }
 
     func setupCloseKeyboardGesture() {
@@ -94,6 +96,24 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
         if let car = car {
             print("NEW CAR ADDED: \(car.make) \(car.model), sold? \(car.sold)")
         }
+    }
+
+    func updateFieldsIfCarExisits() {
+        let request = AddCar.UpdateFieldsIfCarExists.Request()
+            interactor?.updateFieldsIfCarExists(request: request)
+    }
+
+    func displayUpdateFieldsIfCarExists(viewModel: AddCar.UpdateFieldsIfCarExists.ViewModel) {
+        guard let carToUpdate = viewModel.car else { return }
+
+        car = carToUpdate
+        makeTextField.text = carToUpdate.make
+        modelTextField.text = carToUpdate.model
+
+        print("Car sold value = \(carToUpdate.sold)")
+
+        soldSwitch.isOn = carToUpdate.sold
+        soldValue = carToUpdate.sold
     }
 
     // Actions:

@@ -46,9 +46,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="bAC-da-Glz" kind="show" identifier="AddCarSegue" id="Afg-G7-26o"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -65,6 +62,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Eta-0Z-9OD" id="k8H-tq-I7u"/>
+                        <segue destination="bAC-da-Glz" kind="show" identifier="AddCarSegue" id="KKP-mH-BEN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LN3-Bo-fxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,6 +181,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Afg-G7-26o"/>
+        <segue reference="KKP-mH-BEN"/>
     </inferredMetricsTieBreakers>
 </document>

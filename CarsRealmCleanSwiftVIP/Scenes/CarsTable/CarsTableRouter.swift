@@ -23,7 +23,7 @@ class CarsTableRouter: NSObject, CarsTableRoutingLogic, CarsTableDataPassing {
     }
 
     func passDataToAddCar(source: CarsTableDataStore, destination: inout AddCarDataStore) {
-        destination.car = source.selectedCar
+        destination.carToUpdate = source.selectedCar
     }
   
   //func routeToSomewhere(segue: UIStoryboardSegue?)

@@ -21,4 +21,27 @@ enum AddCar {
         }
     }
 
+    enum UpdateFieldsIfCarExists {
+        struct Request {
+        }
+        struct Response {
+            var car: Car?
+        }
+        struct ViewModel {
+            var car: Car?
+        }
+    }
+
+    enum UpdateCar {
+        struct Request {
+            var addCarFields: AddCarFields
+        }
+        struct Response {
+            var car: Car?
+        }
+        struct ViewModel {
+            var car: Car?
+        }
+    }
+
 }
