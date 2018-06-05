@@ -19,8 +19,13 @@ class AddCarPresenter: AddCarPresentationLogic {
 
     func presentUpdateFieldsIfCarExists(response: AddCar.UpdateFieldsIfCarExists.Response) {
 
+        if response.car != nil {
         let car = response.car
-        let viewModel = AddCar.UpdateFieldsIfCarExists.ViewModel(car: car)
+        let viewModel = AddCar.UpdateFieldsIfCarExists.ViewModel(car: car, soldValue: nil)
         viewController?.displayUpdateFieldsIfCarExists(viewModel: viewModel)
+        } else {
+            let viewModel = AddCar.UpdateFieldsIfCarExists.ViewModel(car: nil, soldValue: false)
+            viewController?.displayUpdateFieldsIfCarExists(viewModel: viewModel)
+        }
     }
 }

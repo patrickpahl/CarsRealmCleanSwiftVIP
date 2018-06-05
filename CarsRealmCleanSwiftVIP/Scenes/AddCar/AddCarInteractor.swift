@@ -29,7 +29,10 @@ class AddCarInteractor: AddCarBusinessLogic, AddCarDataStore {
 
     func updateFieldsIfCarExists(request: AddCar.UpdateFieldsIfCarExists.Request) {
         if carToUpdate != nil {
-            let response = AddCar.UpdateFieldsIfCarExists.Response(car: carToUpdate)
+            let response = AddCar.UpdateFieldsIfCarExists.Response(car: carToUpdate, soldValue: nil)
+            presenter?.presentUpdateFieldsIfCarExists(response: response)
+        } else {
+            let response = AddCar.UpdateFieldsIfCarExists.Response(car: nil, soldValue: false)
             presenter?.presentUpdateFieldsIfCarExists(response: response)
         }
     }

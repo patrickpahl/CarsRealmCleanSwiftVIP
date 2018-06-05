@@ -26,9 +26,11 @@ enum AddCar {
         }
         struct Response {
             var car: Car?
+            var soldValue: Bool?
         }
         struct ViewModel {
             var car: Car?
+            var soldValue: Bool?
         }
     }
 

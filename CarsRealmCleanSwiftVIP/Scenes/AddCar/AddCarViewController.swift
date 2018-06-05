@@ -70,7 +70,7 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
         //// TODO: update when enabling update car
         // if car to update available, car.sold. ELSE soldvalue = false
         //soldValue = false
-        ///soldSwitch.isOn = false
+        //soldSwitch.isOn = false
     }
 
     func setupCloseKeyboardGesture() {
@@ -104,16 +104,19 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     }
 
     func displayUpdateFieldsIfCarExists(viewModel: AddCar.UpdateFieldsIfCarExists.ViewModel) {
-        guard let carToUpdate = viewModel.car else { return }
 
-        car = carToUpdate
-        makeTextField.text = carToUpdate.make
-        modelTextField.text = carToUpdate.model
-
-        print("Car sold value = \(carToUpdate.sold)")
-
-        soldSwitch.isOn = carToUpdate.sold
-        soldValue = carToUpdate.sold
+        if viewModel.car != nil {
+            guard let carToUpdate = viewModel.car else { return }
+            car = carToUpdate
+            makeTextField.text = carToUpdate.make
+            modelTextField.text = carToUpdate.model
+            soldSwitch.isOn = carToUpdate.sold
+            soldValue = carToUpdate.sold
+        } else {
+            guard let soldValue = viewModel.soldValue else { return }
+            soldSwitch.isOn = soldValue
+            self.soldValue = soldValue
+        }
     }
 
     // Actions:
