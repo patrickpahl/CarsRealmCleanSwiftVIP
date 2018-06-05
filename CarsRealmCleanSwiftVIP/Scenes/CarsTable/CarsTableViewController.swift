@@ -2,15 +2,14 @@ import UIKit
 import RealmSwift
 
 protocol CarsTableDisplayLogic: class {
-    func displaySomething(viewModel: CarsTable.Something.ViewModel)
     func displayAllCars(viewModel: CarsTable.GetCars.ViewModel)
+    func displaySelectCar(viewModel: CarsTable.SelectCar.ViewModel)
 }
 
 class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
 
-    ///var cars: Results<Car>?
     var cars = [CarsTable.GetCars.ViewModel.DisplayedCar]()
 
     var interactor: CarsTableBusinessLogic?
@@ -58,28 +57,14 @@ class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableV
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
         tableView.dataSource = self
         tableView.delegate = self
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
         getCars()
-    }
-
-    // MARK: Do something
-
-    //@IBOutlet weak var nameTextField: UITextField!
-
-    func doSomething() {
-        let request = CarsTable.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-
-    func displaySomething(viewModel: CarsTable.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
     }
 
     func getCars() {
@@ -91,6 +76,10 @@ class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableV
     func displayAllCars(viewModel: CarsTable.GetCars.ViewModel) {
         cars = viewModel.displayedCars
         tableView.reloadData()
+    }
+
+    func displaySelectCar(viewModel: CarsTable.SelectCar.ViewModel) {
+        performSegue(withIdentifier: viewModel.segueIdentifier, sender: nil)
     }
 
     // TableView Funcs
@@ -110,6 +99,12 @@ class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableV
         cell.detailTextLabel?.text = "\(car.sold)"
 
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let request = CarsTable.SelectCar.Request(indexPath: indexPath)
+        interactor?.selectCar(request: request)
     }
 
 }

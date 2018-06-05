@@ -2,10 +2,11 @@ import UIKit
 
 protocol AddCarDisplayLogic: class {
     func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel)
+    func displayUpdateFieldsIfCarExists(viewModel: AddCar.UpdateFieldsIfCarExists.ViewModel)
+    func displayUpdateCar(viewModel: AddCar.UpdateCar.ViewModel)
 }
 
 class AddCarViewController: UIViewController, AddCarDisplayLogic {
-
     @IBOutlet weak var makeTextField: UITextField!
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var soldSwitch: UISwitch!
@@ -66,9 +67,7 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // TODO: update when enabling update car
-        soldValue = false
-        soldSwitch.isOn = false
+        updateFieldsIfCarExisits()
     }
 
     func setupCloseKeyboardGesture() {
@@ -90,9 +89,45 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     }
 
     func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel) {
+            self.navigationController?.popViewController(animated: true)
+    }
+
+    func updateCar() {
+        guard let makeText = makeTextField.text,
+            let modelText = modelTextField.text else { return }
+
+        let carFields = AddCar.AddCarFields(make: makeText, model: modelText, sold: soldValue)
+
+        let request = AddCar.UpdateCar.Request(addCarFields: carFields)
+        interactor?.updateCar(request: request)
+    }
+
+    func displayUpdateCar(viewModel: AddCar.UpdateCar.ViewModel) {
         car = viewModel.car
         if let car = car {
-            print("NEW CAR ADDED: \(car.make) \(car.model), sold? \(car.sold)")
+            print("Updated car! \(car.make), \(car.model), Sold: \(car.sold)")
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    func updateFieldsIfCarExisits() {
+        let request = AddCar.UpdateFieldsIfCarExists.Request()
+            interactor?.updateFieldsIfCarExists(request: request)
+    }
+
+    func displayUpdateFieldsIfCarExists(viewModel: AddCar.UpdateFieldsIfCarExists.ViewModel) {
+
+        if viewModel.car != nil {
+            guard let carToUpdate = viewModel.car else { return }
+            car = carToUpdate
+            makeTextField.text = carToUpdate.make
+            modelTextField.text = carToUpdate.model
+            soldSwitch.isOn = carToUpdate.sold
+            soldValue = carToUpdate.sold
+        } else {
+            guard let soldValue = viewModel.soldValue else { return }
+            soldSwitch.isOn = soldValue
+            self.soldValue = soldValue
         }
     }
 
@@ -103,7 +138,12 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     }
 
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        addCar()
+
+        if car != nil {
+            updateCar()
+        } else {
+            addCar()
+        }
     }
 
 }

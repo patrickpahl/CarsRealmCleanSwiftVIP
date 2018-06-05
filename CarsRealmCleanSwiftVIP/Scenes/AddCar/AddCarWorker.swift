@@ -3,10 +3,6 @@ import RealmSwift
 
 class AddCarWorker {
 
-    func doSomeWork() {
-
-    }
-
     func addCarToRealm(make: String, model: String, sold: Bool) {
         let realm = try! Realm()
         let car = Car()
@@ -18,6 +14,14 @@ class AddCarWorker {
             realm.add(car)
         }
     }
+
+    func updateCarInRealm(car: Car, make: String, model: String, sold: Bool) {
+        let realm = try! Realm()
+        try! realm.write {
+            car.make = make
+            car.model = model
+            car.sold = sold
+        }
+    }
+
 }
-
-

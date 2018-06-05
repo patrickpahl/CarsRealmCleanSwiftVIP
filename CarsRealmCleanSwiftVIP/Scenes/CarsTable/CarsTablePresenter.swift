@@ -1,18 +1,12 @@
 import UIKit
 
 protocol CarsTablePresentationLogic {
-    func presentSomething(response: CarsTable.Something.Response)
     func presentGetCars(response: CarsTable.GetCars.Response)
+    func presentSelectCar(response: CarsTable.SelectCar.Response)
 }
 
 class CarsTablePresenter: CarsTablePresentationLogic {
     weak var viewController: CarsTableDisplayLogic?
-
-    // MARK: Do something
-
-    func presentSomething(response: CarsTable.Something.Response) {
-
-    }
 
     func presentGetCars(response: CarsTable.GetCars.Response) {
         guard let cars = response.cars else { return }
@@ -27,6 +21,12 @@ class CarsTablePresenter: CarsTablePresentationLogic {
         }
         let viewModel = CarsTable.GetCars.ViewModel(displayedCars: displayedCars)
         viewController?.displayAllCars(viewModel: viewModel)
+    }
+
+    func presentSelectCar(response: CarsTable.SelectCar.Response) {
+
+        let viewModel = CarsTable.SelectCar.ViewModel(indexPath: response.indexPath, segueIdentifier: response.segueIdentifier)
+        viewController?.displaySelectCar(viewModel: viewModel)
     }
 
 }
