@@ -3,6 +3,7 @@ import UIKit
 protocol AddCarDisplayLogic: class {
     func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel)
     func displayUpdateFieldsIfCarExists(viewModel: AddCar.UpdateFieldsIfCarExists.ViewModel)
+    func displayUpdateCar(viewModel: AddCar.UpdateCar.ViewModel)
 }
 
 class AddCarViewController: UIViewController, AddCarDisplayLogic {
@@ -67,10 +68,6 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
         super.viewWillAppear(animated)
 
         updateFieldsIfCarExisits()
-        //// TODO: update when enabling update car
-        // if car to update available, car.sold. ELSE soldvalue = false
-        //soldValue = false
-        //soldSwitch.isOn = false
     }
 
     func setupCloseKeyboardGesture() {
@@ -92,9 +89,24 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     }
 
     func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel) {
+            self.navigationController?.popViewController(animated: true)
+    }
+
+    func updateCar() {
+        guard let makeText = makeTextField.text,
+            let modelText = modelTextField.text else { return }
+
+        let carFields = AddCar.AddCarFields(make: makeText, model: modelText, sold: soldValue)
+
+        let request = AddCar.UpdateCar.Request(addCarFields: carFields)
+        interactor?.updateCar(request: request)
+    }
+
+    func displayUpdateCar(viewModel: AddCar.UpdateCar.ViewModel) {
         car = viewModel.car
         if let car = car {
-            print("NEW CAR ADDED: \(car.make) \(car.model), sold? \(car.sold)")
+            print("Updated car! \(car.make), \(car.model), Sold: \(car.sold)")
+            self.navigationController?.popViewController(animated: true)
         }
     }
 
@@ -126,7 +138,12 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     }
 
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        addCar()
+
+        if car != nil {
+            updateCar()
+        } else {
+            addCar()
+        }
     }
 
 }

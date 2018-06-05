@@ -3,6 +3,7 @@ import UIKit
 protocol AddCarPresentationLogic {
     func presentCarAdded(response: AddCar.AddCar.Response)
     func presentUpdateFieldsIfCarExists(response: AddCar.UpdateFieldsIfCarExists.Response)
+    func presentUpdateCar(response: AddCar.UpdateCar.Response)
 }
 
 class AddCarPresenter: AddCarPresentationLogic {
@@ -27,5 +28,12 @@ class AddCarPresenter: AddCarPresentationLogic {
             let viewModel = AddCar.UpdateFieldsIfCarExists.ViewModel(car: nil, soldValue: false)
             viewController?.displayUpdateFieldsIfCarExists(viewModel: viewModel)
         }
+    }
+
+    func presentUpdateCar(response: AddCar.UpdateCar.Response) {
+
+        let carToUpdate = response.car
+        let viewModel = AddCar.UpdateCar.ViewModel(car: carToUpdate)
+        viewController?.displayUpdateCar(viewModel: viewModel)
     }
 }

@@ -61,8 +61,8 @@ class CarsTableViewController: UIViewController, CarsTableDisplayLogic, UITableV
         tableView.delegate = self
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
         getCars()
     }
