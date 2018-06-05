@@ -1,7 +1,7 @@
 import UIKit
 
 @objc protocol CarsTableRoutingLogic {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToAddCarSegue(segue: UIStoryboardSegue?)
 }
 
 protocol CarsTableDataPassing {
@@ -18,16 +18,12 @@ class CarsTableRouter: NSObject, CarsTableRoutingLogic, CarsTableDataPassing {
 
         if let segue = segue, let destination = segue.destination as? AddCarViewController, var destinationDataStore = destination.router?.dataStore, let sourceDataStore = dataStore {
 
+            passDataToAddCar(source: sourceDataStore, destination: &destinationDataStore)
         }
-
     }
 
     func passDataToAddCar(source: CarsTableDataStore, destination: inout AddCarDataStore) {
-
-        destination.car = source.
-
-
-
+        destination.car = source.selectedCar
     }
   
   //func routeToSomewhere(segue: UIStoryboardSegue?)

@@ -28,8 +28,9 @@ class CarsTableInteractor: CarsTableBusinessLogic, CarsTableDataStore {
     }
 
     func selectCar(request: CarsTable.SelectCar.Request) {
-        guard let car = allCars[request.indexPath.row] else { return }
+        guard let allCars = allCars else { return }
 
+        let car = allCars[request.indexPath.row]
         selectedCar = car
         let addCarSegue = "AddCarSegue"
         let response = CarsTable.SelectCar.Response(indexPath: request.indexPath, segueIdentifier: addCarSegue)
