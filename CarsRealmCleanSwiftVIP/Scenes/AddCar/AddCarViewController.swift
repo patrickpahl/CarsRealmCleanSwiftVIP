@@ -59,6 +59,8 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupCloseKeyboardGesture()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -69,12 +71,15 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
         soldSwitch.isOn = false
     }
 
-    // MARK: Do something
-
-    //@IBOutlet weak var nameTextField: UITextField!
+    func setupCloseKeyboardGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
     func addCar() {
-
         guard let makeText = makeTextField.text,
             let modelText = modelTextField.text else { return }
 
@@ -87,7 +92,7 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel) {
         car = viewModel.car
         if let car = car {
-        print("NEW CAR ADDED: \(car.make) \(car.model), sold? \(car.sold)")
+            print("NEW CAR ADDED: \(car.make) \(car.model), sold? \(car.sold)")
         }
     }
 
