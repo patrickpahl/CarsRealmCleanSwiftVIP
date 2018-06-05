@@ -6,12 +6,14 @@ protocol AddCarBusinessLogic {
 
 protocol AddCarDataStore {
     //var name: String { get set }
+    var car: Car? { get set }
 }
 
 class AddCarInteractor: AddCarBusinessLogic, AddCarDataStore {
     var presenter: AddCarPresentationLogic?
     var worker: AddCarWorker?
-    //var name: String = ""
+
+    var car: Car?
 
     // MARK: Do something
 

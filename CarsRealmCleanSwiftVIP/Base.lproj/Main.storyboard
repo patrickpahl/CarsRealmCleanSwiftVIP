@@ -46,6 +46,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="bAC-da-Glz" kind="show" identifier="AddCarSegue" id="Afg-G7-26o"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -71,7 +74,7 @@
         <!--Add Car View Controller-->
         <scene sceneID="7cU-V7-WVY">
             <objects>
-                <viewController id="bAC-da-Glz" customClass="AddCarViewController" customModule="CarsRealmCleanSwiftVIP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCarViewController" id="bAC-da-Glz" customClass="AddCarViewController" customModule="CarsRealmCleanSwiftVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TEu-1o-jYP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,4 +182,7 @@
             <point key="canvasLocation" x="-335" y="103"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Afg-G7-26o"/>
+    </inferredMetricsTieBreakers>
 </document>

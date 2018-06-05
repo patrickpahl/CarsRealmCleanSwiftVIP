@@ -4,18 +4,6 @@ import RealmSwift
 enum CarsTable {
     // MARK: Use cases
 
-    enum Something {
-        struct Request {
-
-        }
-        struct Response {
-
-        }
-        struct ViewModel {
-
-        }
-    }
-
     enum GetCars {
         struct Request {
             
@@ -31,6 +19,20 @@ enum CarsTable {
             }
 
             var displayedCars = [DisplayedCar]()
+        }
+    }
+
+    enum SelectCar {
+        struct Request {
+            var indexPath: IndexPath
+        }
+        struct Response {
+            var indexPath: IndexPath
+            var segueIdentifier: String
+        }
+        struct ViewModel {
+            var indexPath: IndexPath
+            var segueIdentifier: String
         }
     }
 

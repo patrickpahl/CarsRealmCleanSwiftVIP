@@ -2,30 +2,20 @@ import UIKit
 import RealmSwift
 
 protocol CarsTableBusinessLogic {
-    func doSomething(request: CarsTable.Something.Request)
     func getCars(request: CarsTable.GetCars.Request)
+    func selectCar(request: CarsTable.SelectCar.Request)
 }
 
 protocol CarsTableDataStore {
-    //var name: String { get set }
     var allCars: Results<Car>? { get set }
+    var selectedCar: Car? { get set }
 }
 
 class CarsTableInteractor: CarsTableBusinessLogic, CarsTableDataStore {
     var presenter: CarsTablePresentationLogic?
     var worker: CarsTableWorker?
-    //var name: String = ""
     var allCars: Results<Car>?
-
-    // MARK: Do something
-
-    func doSomething(request: CarsTable.Something.Request) {
-        worker = CarsTableWorker()
-        worker?.doSomeWork()
-
-        let response = CarsTable.Something.Response()
-        presenter?.presentSomething(response: response)
-    }
+    var selectedCar: Car?
 
     func getCars(request: CarsTable.GetCars.Request) {
 
@@ -35,6 +25,15 @@ class CarsTableInteractor: CarsTableBusinessLogic, CarsTableDataStore {
 
         let response = CarsTable.GetCars.Response(cars: cars)
         presenter?.presentGetCars(response: response)
+    }
+
+    func selectCar(request: CarsTable.SelectCar.Request) {
+        guard let car = allCars[request.indexPath.row] else { return }
+
+        selectedCar = car
+        let addCarSegue = "AddCarSegue"
+        let response = CarsTable.SelectCar.Response(indexPath: request.indexPath, segueIdentifier: addCarSegue)
+        presenter?.presentSelectCar(response: response)
     }
 
 }
