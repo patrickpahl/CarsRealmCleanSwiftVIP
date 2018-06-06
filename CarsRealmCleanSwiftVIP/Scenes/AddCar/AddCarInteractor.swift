@@ -19,8 +19,16 @@ class AddCarInteractor: AddCarBusinessLogic, AddCarDataStore {
     // MARK: Do something
 
     func addCar(request: AddCar.AddCar.Request) {
+
+        if request.errorMessage != nil {
+            let response = AddCar.AddCar.Response(car: nil, errorMessage: request.errorMessage)
+            presenter?.presentCarAdded(response: response)
+            return
+        }
+
+        guard let addCarFields = request.addCarFields else { return }
         worker = AddCarWorker()
-        worker?.addCarToRealm(make: request.addCarFields.make, model: request.addCarFields.model, sold: request.addCarFields.sold)
+        worker?.addCarToRealm(make: addCarFields.make, model: addCarFields.model, sold: addCarFields.sold)
 
         let response = AddCar.AddCar.Response()
         presenter?.presentCarAdded(response: response)
