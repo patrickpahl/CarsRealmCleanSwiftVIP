@@ -79,17 +79,36 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
     }
 
     func addCar() {
+        guard makeTextField.text != "" else {
+            let request = AddCar.AddCar.Request(addCarFields: nil, errorMessage: "Please enter a make.")
+            interactor?.addCar(request: request)
+            return
+        }
+
+        guard modelTextField.text != "" else {
+            let request = AddCar.AddCar.Request(addCarFields: nil, errorMessage: "Please enter a model.")
+            interactor?.addCar(request: request)
+            return
+        }
+
         guard let makeText = makeTextField.text,
-            let modelText = modelTextField.text else { return }
+        let modelText = modelTextField.text else { return }
 
         let carFields = AddCar.AddCarFields(make: makeText, model: modelText, sold: soldValue)
 
-        let request = AddCar.AddCar.Request(addCarFields: carFields)
+        let request = AddCar.AddCar.Request(addCarFields: carFields, errorMessage: nil)
         interactor?.addCar(request: request)
     }
 
     func displayNewCarAdded(viewModel: AddCar.AddCar.ViewModel) {
-            self.navigationController?.popViewController(animated: true)
+        if viewModel.errorMessage != nil {
+            let alertController = UIAlertController(title: "Error", message: viewModel.errorMessage, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
+            return
+        }
+        self.navigationController?.popViewController(animated: true)
     }
 
     func updateCar() {
@@ -112,7 +131,7 @@ class AddCarViewController: UIViewController, AddCarDisplayLogic {
 
     func updateFieldsIfCarExisits() {
         let request = AddCar.UpdateFieldsIfCarExists.Request()
-            interactor?.updateFieldsIfCarExists(request: request)
+        interactor?.updateFieldsIfCarExists(request: request)
     }
 
     func displayUpdateFieldsIfCarExists(viewModel: AddCar.UpdateFieldsIfCarExists.ViewModel) {

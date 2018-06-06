@@ -11,13 +11,16 @@ enum AddCar {
 
     enum AddCar {
         struct Request {
-            var addCarFields: AddCarFields
+            var addCarFields: AddCarFields?
+            var errorMessage: String?
         }
         struct Response {
             var car: Car?
+            var errorMessage: String?
         }
         struct ViewModel {
             var car: Car?
+            var errorMessage: String?
         }
     }
 

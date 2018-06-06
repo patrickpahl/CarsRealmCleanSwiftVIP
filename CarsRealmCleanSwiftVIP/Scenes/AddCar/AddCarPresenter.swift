@@ -13,8 +13,14 @@ class AddCarPresenter: AddCarPresentationLogic {
 
     func presentCarAdded(response: AddCar.AddCar.Response) {
 
+        if response.errorMessage != nil {
+            let viewModel = AddCar.AddCar.ViewModel(car: nil, errorMessage: response.errorMessage)
+            viewController?.displayNewCarAdded(viewModel: viewModel)
+            return
+        }
+
         let carAdded = response.car
-        let viewModel = AddCar.AddCar.ViewModel(car: carAdded)
+        let viewModel = AddCar.AddCar.ViewModel(car: carAdded, errorMessage: nil)
         viewController?.displayNewCarAdded(viewModel: viewModel)
     }
 
